@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="Z:\LIP3\workspace3c\miniprojeto3c"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
