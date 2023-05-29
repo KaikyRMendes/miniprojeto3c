@@ -1,6 +1,6 @@
 package br.com.itb.miniprojeto3c.model;
 
-//import jakarta.persistence.Column;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,26 +8,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name="Produto")
+@Table(name="Produto")
 public class Produto {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	private long id;
-	//@Column(length = 100, nullable = false)
-	private String nome;	    
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;	
+
+	private String nome;    
 	private String descricao;	 
 	private String codigoBarras;
-	private byte[] foto;	 
+	private byte[] foto;		 
 	private double preco;		 
-	private String categoria;	
+	private String categoria;
 	private String destaque;
 	private String statusProd;
 	
-	
 	// CRIAR GETTERS E SETTERS
-	
 	public long getId() {
 		return id;
 	}
@@ -82,6 +79,10 @@ public class Produto {
 	public void setStatusProd(String statusProd) {
 		this.statusProd = statusProd;
 	}
+	
+	
+	
+	
 	
 	
 }

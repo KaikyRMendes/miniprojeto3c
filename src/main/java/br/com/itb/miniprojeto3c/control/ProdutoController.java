@@ -1,7 +1,8 @@
 package br.com.itb.miniprojeto3c.control;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,25 +14,32 @@ import br.com.itb.miniprojeto3c.model.Produto;
 import br.com.itb.miniprojeto3c.service.ProdutoService;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600, allowCredentials = "false")
+@CrossOrigin(origins="*", maxAge = 3600, allowCredentials = "false")
 @RequestMapping("/produto")
 public class ProdutoController {
 	
-	// Criação do objeto de servico
+	// criação do objeto de serviço
 	final ProdutoService produtoService;
 	
-	// Injeção de Dependencia
+	// Injeção de Dependência
 	public ProdutoController(ProdutoService _produtoService) {
 		this.produtoService = _produtoService;
 	}
 	
 	// ROTA POST
 	@PostMapping
-	public ResponseEntity<Object> saveProduto(Produto produto) {
+	public ResponseEntity<Object> saveProduto(Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(produtoService.save(produto));
 	}
 	
 	// ROTA GET
+	@GetMapping
+	public ResponseEntity<List<Produto>> getAllProdutos(){
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(produtoService.findAll());
+	}
+	
+	
 	
 }

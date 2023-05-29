@@ -10,12 +10,11 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class ProdutoService {
-
 	
 	// Criar objeto repository
 	final ProdutoRepository produtoRepository;
 	
-	// Injeção de Dendência
+	// Injeção de Dependência
 	public ProdutoService(ProdutoRepository _produtoRepository) {
 		this.produtoRepository = _produtoRepository;
 	}
@@ -31,5 +30,6 @@ public class ProdutoService {
 		List<Produto> lista = produtoRepository.findAll();
 		return lista;
 	}
+	
 	
 }
